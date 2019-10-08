@@ -1,0 +1,18 @@
+<html>
+    <body>
+        <header>
+            <h1>Zay's IceCream Shop</h1>
+            <nav>
+                <a href="{% url "ice_cream:selection" "home" %}"><span>Home</span></a>
+                <a href="{% url "ice_cream:selection" "featured"%}"><span>Featured</span></a>
+                <a href="{% url "ice_cream:selection" 'daily'%}"><span>Daily</span></a>
+                <a href="{% url "ice_cream:selection" 'weekly'%}"><span>Weekly</span></a>
+                <a href="{% url "ice_cream:selection" 'seasonal'%}"><span>Seasonal</span></a>
+            </nav>
+        </header>
+        {% block content %}
+        {% endblock %}
+
+    </body>
+
+</html>

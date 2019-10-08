@@ -1,23 +1,19 @@
 from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404
-from .models import Icecream
+from .models import IceCream
 
 # Create your views here.
-def title(request):
+def index(request, selection=None):
 
-    topics = Icecream.objects.all()
-    # ice_cream_list = Icecream.objects.filter()
+    if selection == "home":
+        ice_cream_list = IceCream.objects.all()
+    elif selection == 'featured':
+        ice_cream_list = IceCream.objects.filter(featured=True)
+    else:
+        ice_cream_list = IceCream.objects.filter(available=selection.upper())
 
     context = {
-        "topics": topics
+        "ice_cream_list": ice_cream_list
     }
-    return render(request, "ice_cream/titles.html", context)
 
-
-
-
-def flavors(request, title_id):
-
-    flavor = get_object_or_404(Icecream, pk=title_id)
-    context = {"flavor": flavor}
-    return render(request, "ice_cream/flavors.html", context)
+    return render(request, "ice_cream/index.html", context)

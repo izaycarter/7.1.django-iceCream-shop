@@ -1,9 +1,8 @@
 from django.contrib import admin
 
-from .models import Icecream, Choice
+from .models import IceCream
 
 # Register your models here.
 
 
-admin.site.register(Icecream)
-admin.site.register(Choice)
+admin.site.register(IceCream)

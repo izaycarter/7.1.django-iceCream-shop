@@ -1,0 +1,20 @@
+{% extends "ice_cream/base.html" %}
+{% block content %}
+
+{% if ice_cream_list %}
+
+    <ul>
+        {% for ice_cream in ice_cream_list %}
+        <li>{{ice_cream.flavor}}</li>
+        {% endfor %}
+    </ul>
+
+{% else %}
+
+<p>
+    you messed somethin up
+    </p>
+
+{% endif %}
+
+{% endblock %}
