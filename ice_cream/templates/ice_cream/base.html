@@ -1,18 +1,26 @@
 <html>
+    <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    </head>
     <body>
-        <header>
-            <h1>Zay's IceCream Shop</h1>
-            <nav>
-                <a href="{% url "ice_cream:selection" "home" %}"><span>Home</span></a>
-                <a href="{% url "ice_cream:selection" "featured"%}"><span>Featured</span></a>
-                <a href="{% url "ice_cream:selection" 'daily'%}"><span>Daily</span></a>
-                <a href="{% url "ice_cream:selection" 'weekly'%}"><span>Weekly</span></a>
-                <a href="{% url "ice_cream:selection" 'seasonal'%}"><span>Seasonal</span></a>
+        <div class="container">
+        <header class="d-flex row justify-content-center mb-5">
+            <h1 class="d-flex col-12 justify-content-center">Zay's IceCream Shop</h1>
+            <nav class="d-flex col-12 justify-content-around">
+                <a href="{% url 'ice_cream:selection' 'home' %}"><span>Home</span></a>
+                <a href="{% url 'ice_cream:selection' 'featured' %}"><span>Featured</span></a>
+                <a href="{% url 'ice_cream:selection' 'daily'%}"><span>Daily</span></a>
+                <a href="{% url 'ice_cream:selection' 'weekly'%}"><span>Weekly</span></a>
+                <a href="{% url 'ice_cream:selection' 'seasonal'%}"><span>Seasonal</span></a>
+                <a href="{% url 'ice_cream:create' %}"><span>New Flavor</span></a>
+                <a href="{% url 'logout' %}"> Logout</a>
             </nav>
         </header>
         {% block content %}
         {% endblock %}
-
+        </div>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     </body>
 
 </html>

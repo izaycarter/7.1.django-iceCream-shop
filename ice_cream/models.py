@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+from django.urls import reverse
 
 import datetime
 
@@ -40,3 +41,6 @@ class IceCream(models.Model):
 
     def __str__(self):
         return self.flavor
+
+    def get_absolute_url(self):
+        return reverse("ice_cream:index")

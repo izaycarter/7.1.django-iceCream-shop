@@ -3,9 +3,24 @@
 
 {% if ice_cream_list %}
 
-    <ul>
+    <ul class="row">
         {% for ice_cream in ice_cream_list %}
-        <li>{{ice_cream.flavor}}</li>
+        <li class="d-flex col-4 align-items-center mb-4">
+            {{ ice_cream.flavor }}
+
+            <form class="mb-0" action="{% url 'ice_cream:vote' ice_cream.id %}" method="post" >
+                {% csrf_token %}
+
+                    <input type="button" name="ice_cream" id="ice_cream.id" value="likes:{{ice_cream.id}}" hidden>
+                    <label class="ml-1 mb-0" for="ice_cream.id">Likes:{{ice_cream.likes}}</label>
+                    <button>Like</button>
+            </form>
+
+            <form class="mb-0" action="{% url 'ice_cream:delete' ice_cream.id %}" method="post">
+                {% csrf_token %}
+                <input type="submit" value="delete" />
+            </form>
+        </li>
         {% endfor %}
     </ul>
 

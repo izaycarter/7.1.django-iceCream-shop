@@ -18,5 +18,7 @@ from django.urls import path, include
 
 urlpatterns = [
     path("ice_cream/", include("ice_cream.urls", namespace="ice_cream")),
+    path("accounts/", include("django.contrib.auth.urls")),
+    path("accounts/", include("accounts.urls", namespace="accounts")),
     path('admin/', admin.site.urls),
 ]
