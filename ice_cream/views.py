@@ -1,6 +1,8 @@
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
 from .models import IceCream
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.contrib.auth.decorators import user_passes_test
 from django.urls import reverse, reverse_lazy
 from django.views import generic
 
@@ -48,3 +50,6 @@ class CreateIceCream(generic.CreateView):
 class DeleteIceCream(generic.DeleteView):
     model = IceCream
     success_url = reverse_lazy("ice_cream:index")
+
+def is_superuser_check(user):
+    return user.is_superuser
